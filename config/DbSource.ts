@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+import { IUser, UserSchema } from "@domain/user/user.model";
+import mongoose, { Model } from "mongoose";
 
 export class DbSource {
   _db: typeof mongoose;
@@ -11,5 +12,8 @@ export class DbSource {
     } catch (err) {
       console.log(`Something went wrong with MONGODB CONN`, err);
     }
+  }
+  public get user(): Model<IUser> {
+    return this._db.model<IUser>("User", UserSchema);
   }
 }
