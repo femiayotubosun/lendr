@@ -1,7 +1,8 @@
 export interface UsersRepositoryInterface {
-  create();
-  update();
-  delete();
-  findById();
+  create(dto: any);
+  update(dto: any);
+  delete(id: string);
+  findById(id: string);
+  findByEmail(email: string);
   find();
 }
